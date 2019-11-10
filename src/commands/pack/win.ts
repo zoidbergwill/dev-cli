@@ -7,7 +7,7 @@ import * as Tarballs from '../../tarballs'
 export default class PackWin extends Command {
   static description = 'create windows installer from oclif CLI'
 
-  static flags = {
+  static flags: flags.Input<any> = {
     root: flags.string({char: 'r', description: 'path to oclif CLI root', default: '.', required: true}),
   }
 
