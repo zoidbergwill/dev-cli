@@ -88,9 +88,9 @@
     "lint": "tsc -p test --noEmit && tslint -p test -t stylish",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",
-    "postinstall": "npm run tsc && node ./bin/run manifest",
-    "tsc": "tsc",
-    "prepack": "rm -rf lib && npm run tsc && node ./bin/run manifest",
+    "postinstall": "npm run --scripts-prepend-node-path=true tsc && node --scripts-prepend-node-path=true ./bin/run manifest",
+    "tsc": "tsc --scripts-prepend-node-path=true",
+    "prepack": "rm -rf lib && npm run tsc && node --scripts-prepend-node-path=true ./bin/run manifest",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "npm run changelog && node ./bin/run readme && git add README.md"
   },
